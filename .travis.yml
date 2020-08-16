@@ -14,7 +14,7 @@ after_success:
   - docker build -t skygao/multi-server ./server
   - docker build -t skygao/multi-worker ./worker
   # Login to the docker CLI
-  - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD" docker.io
+  - docker login -u "$DOCKER_USERNAME " -p "$DOCKER_PASSWORD" docker.io
   - docker push skygao/multi-client
   - docker push skygao/multi-nginx
   - docker push skygao/multi-server
