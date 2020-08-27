@@ -14,7 +14,8 @@ after_success:
   - docker build -t coolgao/multi-server ./server
   - docker build -t coolgao/multi-worker ./worker
   # Login to the docker CLI
-  - docker login -u "$DOCKER_USERNAME " -p "$DOCKER_PASSWORD" docker.io
+  #- docker login -u "$DOCKER_USERNAME " -p "$DOCKER_PASSWORD" docker.io
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push coolgao/multi-client
   - docker push coolgao/multi-nginx
   - docker push coolgao/multi-server
