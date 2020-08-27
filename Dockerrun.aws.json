@@ -1,0 +1,41 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "coolgao/multi-client",
+      "host": "client",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "server",
+      "image": "coolgao/multi-server",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "worker",
+      "image": "coolgao/multi-worker",
+      "hostname": "worker",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "coolgao/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMapping": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"],
+      "memory": 128
+
+    }
+  ]
+}
