@@ -1,6 +1,7 @@
 docker build -t coolgao/multi-client:latest -t coolgao/multi-client:$SHA -f ./client/Dockerfile ./client
 docker build -t coolgao/multi-server:latest -t coolgao/multi-server:$SHA -f ./server/Dockerfile ./server
 docker build -t coolgao/multi-worker:latest -t coolgao/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+
 docker push coolgao/multi-client:latest
 docker push coolgao/multi-server:latest
 docker push coolgao/multi-worker:latest
